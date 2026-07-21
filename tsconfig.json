@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    /* الـ Core Settings */
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    
+    /* الـ Path Mapping (التعديل الأساسي هنا) */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    /* Strictness & Safety */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,           // بيمسح أي متغير متعرف ومش مستخدم
+    "noUnusedParameters": true,       // بيمسح أي Parameter مش مستخدم في الفانكشن
+    "noFallthroughCasesInSwitch": true,
+
+    /* Modern Interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    
+    /* Performance */
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,              // بيسرع عملية الـ Type Checking في المرات اللي بعد أول مرة
+    
+    "types": ["node", "@playwright/test"]
+  },
+  "include": [
+    "**/*.ts",
+    "playwright.config.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "test-results",
+    "playwright-report",
+    "blob-report"                     // فولدر التقارير الجديد في Playwright
+  ]
+}
