@@ -1,99 +1,245 @@
-🚀 Playwright Hybrid Automation Framework
-A scalable, maintainable, and robust Hybrid Test Automation Framework built with Playwright, TypeScript, and Page Object Model (POM) pattern.
+# 🚀 Playwright Hybrid Automation Framework
 
-This framework is designed to handle UI Testing, API Testing, and Hybrid Testing (combining API setup/teardown with UI execution) for high-performance end-to-end quality assurance.
+A scalable, maintainable, and robust **Hybrid Test Automation Framework** built with **Playwright**, **TypeScript**, and the **Page Object Model (POM)** design pattern.
 
-✨ Key Features
-Hybrid Testing Capabilities: Supports standalone UI tests, isolated API tests, and hybrid workflows.
+This framework supports:
 
-Page Object Model (POM): Clean separation between page elements/actions and test scripts.
+- ✅ UI Testing
+- ✅ API Testing
+- ✅ Hybrid Testing (API setup/teardown with UI execution)
 
-Custom Fixtures (fixtures/Fixture.ts): Streamlined object dependency injection and test setup.
+It is designed for high-performance, maintainable, and scalable end-to-end test automation.
 
-Multi-Environment Configuration: Support for environment-based runs (.env.dev, .env.live).
+---
 
-Data-Driven Testing: Decoupled test data using JSON files (data/UI/*.json) and Builder patterns (builder).
+# ✨ Key Features
 
-Authentication State Reuse: Built-in global setup (auth.setup.ts) to manage and persist login sessions.
+- **Hybrid Testing**
+  - Supports standalone UI tests
+  - Supports standalone API tests
+  - Supports Hybrid API + UI workflows
 
-CI/CD Ready: Includes GitHub Actions workflow configurations (.github).
+- **Page Object Model (POM)**
+  - Clean separation between page actions and test logic
+  - Easier maintenance and scalability
 
-🏗 Framework Architecture & Project Structure
-Plaintext
+- **Custom Fixtures**
+  - Centralized dependency injection
+  - Simplified test initialization
+  - Located in `fixtures/Fixture.ts`
+
+- **Multi-Environment Support**
+  - `.env.dev`
+  - `.env.live`
+
+- **Data-Driven Testing**
+  - JSON-based test data
+  - Builder pattern for dynamic data generation
+
+- **Authentication State Reuse**
+  - Global login setup
+  - Persistent authentication sessions
+  - Implemented using `auth.setup.ts`
+
+- **CI/CD Ready**
+  - GitHub Actions integration included
+
+---
+
+# 🏗 Project Structure
+
+```text
 SURE-TASK-BY-PLAYWRIGHT/
 │
-├── .github/              # GitHub Actions CI/CD pipelines
-├── API+UI/               # Core framework modules for API & UI engine
-│   ├── constant/         # System constants and global variables
-│   ├── data/             # Test data & payloads
-│   │   ├── API/          # API-specific test payloads
-│   │   └── UI/           # UI JSON data (e.g., JobDetails.json, loginData.json)
-│   │       └── builder/  # Dynamic test data builders
-│   ├── fixtures/         # Playwright custom fixtures (Fixture.ts)
-│   ├── pages/            # Page Object Model classes
-│   ├── services/         # API Service wrappers / HTTP Clients
-│   ├── types/            # TypeScript interfaces & custom type definitions
-│   └── utils/            # Helper functions (e.g., date formatters, random generators)
+├── .github/
+│   └── workflows/              # GitHub Actions pipelines
 │
-├── files/                # Uploadable test assets & attachments
-├── tests/                # Test suites directory
-│   ├── APITest/          # Backend API test cases (.spec.ts)
-│   ├── hybridTest/       # Integrated API + UI test scenarios
-│   ├── UITest/           # Frontend UI test cases (.spec.ts)
-│   ├── auth.setup.ts     # Global authentication setup
-│   └── example.spec.ts   # Starter / Template test specs
+├── API+UI/
+│   ├── constant/               # Global constants
+│   ├── data/
+│   │   ├── API/                # API payloads
+│   │   └── UI/
+│   │       ├── *.json          # UI test data
+│   │       └── builder/        # Dynamic data builders
+│   │
+│   ├── fixtures/
+│   │   └── Fixture.ts          # Custom Playwright fixtures
+│   │
+│   ├── pages/                  # Page Object Model classes
+│   ├── services/               # API service layer
+│   ├── types/                  # TypeScript interfaces
+│   └── utils/                  # Helper utilities
 │
-├── .env.dev              # Staging / Development environment configuration
-├── .env.live             # Production / Live environment configuration
-├── playwright.config.ts  # Playwright runner & environment configuration
-├── tsconfig.json         # TypeScript compiler configurations
-└── package.json          # Project dependencies & scripts
-🛠 Prerequisites
-Make sure you have the following installed on your machine:
+├── files/                      # Upload files & attachments
+│
+├── tests/
+│   ├── APITest/
+│   ├── UITest/
+│   ├── hybridTest/
+│   ├── auth.setup.ts
+│   └── example.spec.ts
+│
+├── .env.dev
+├── .env.live
+├── playwright.config.ts
+├── tsconfig.json
+└── package.json
+```
 
-Node.js (v18 or higher recommended)
+---
 
-npm or yarn
+# 🛠 Prerequisites
 
-🚀 Installation & Setup
-Clone the repository:
+Before running the project, ensure the following are installed:
 
-Bash
+- Node.js **v18+**
+- npm or Yarn
+- Playwright
+
+---
+
+# 🚀 Installation
+
+## Clone the Repository
+
+```bash
 git clone https://github.com/Ahmed-9595/playwright-typescript-hybrid-framework.git
-Install project dependencies:
+```
 
-Bash
+## Install Dependencies
+
+```bash
 npm install
-Install Playwright Browsers:
+```
 
-Bash
+## Install Playwright Browsers
+
+```bash
 npx playwright install
-🧪 Running Tests
-1. Run All Tests
-Bash
+```
+
+---
+
+# 🧪 Running Tests
+
+## Run All Tests
+
+```bash
 npx playwright test
-2. Run Specific Test Suites
-UI Tests only:
+```
 
-Bash
+---
+
+## Run UI Tests
+
+```bash
 npx playwright test tests/UITest
-API Tests only:
+```
 
-Bash
+---
+
+## Run API Tests
+
+```bash
 npx playwright test tests/APITest
-Hybrid Tests only:
+```
 
-Bash
+---
+
+## Run Hybrid Tests
+
+```bash
 npx playwright test tests/hybridTest
-3. Run Tests in Headed Mode
-Bash
-npx playwright test --headed
-4. Run Tests against Specific Environment
-Bash
-# Executing tests targeting dev environment
-NODE_ENV=dev npx playwright test
-📊 Test Reporting
-To open and view the HTML execution report generated after a test run:
+```
 
-Bash
+---
+
+## Run Tests in Headed Mode
+
+```bash
+npx playwright test --headed
+```
+
+---
+
+## Run Against a Specific Environment
+
+Development environment:
+
+```bash
+NODE_ENV=dev npx playwright test
+```
+
+Production environment:
+
+```bash
+NODE_ENV=live npx playwright test
+```
+
+---
+
+# 📊 Test Reports
+
+Open the HTML report after execution:
+
+```bash
 npx playwright show-report
+```
+
+---
+
+# 🏛 Framework Design
+
+The framework follows a **Hybrid Automation Architecture** based on:
+
+- Page Object Model (POM)
+- Playwright Fixtures
+- Service Layer Pattern
+- Builder Pattern
+- Data-Driven Testing
+- Environment-Based Configuration
+
+This architecture provides:
+
+- High maintainability
+- Better code reusability
+- Cleaner test implementation
+- Easy scalability
+- Faster execution
+- CI/CD compatibility
+
+---
+
+# 📂 Test Categories
+
+| Suite | Description |
+|--------|-------------|
+| **UI Tests** | End-to-end user interface automation |
+| **API Tests** | Backend API validation |
+| **Hybrid Tests** | API setup with UI verification |
+
+---
+
+# 🔧 Technologies Used
+
+- Playwright
+- TypeScript
+- Node.js
+- Page Object Model (POM)
+- Builder Pattern 
+- JSON Data-Driven Testing
+- GitHub Actions
+
+
+---
+
+# 👨‍💻 Author
+
+**Ahmed Abdelaziz**
+
+GitHub:
+https://github.com/Ahmed-9595
+
+---
+
+# ⭐ If you find this project useful, don't forget to give it a star!
